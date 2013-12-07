@@ -24,7 +24,7 @@ if ( is_file( CACHE_FILE ) && filemtime(CACHE_FILE) > time()-1800 ) {
 else {
 	if( $html = @file_get_contents('http://eztv.it/') ) {
 		$html = str_replace('&amp;','&',str_replace('  ','',str_replace(array("\n","\r","\t"),' ',$html)));
-		$pattern = '|class="epinfo">(.*)</a> </td> <td align="center" class="forum_thread_post"><a href="(.*)" class="magnet"|U';
+		$pattern = '|class="epinfo">(.*)</a></td> <td align="center" class="forum_thread_post"><a href="(.*)" class="magnet"|U';
 		
 		if( preg_match_all( $pattern, $html, $out, PREG_PATTERN_ORDER ) ) {
 			
